@@ -158,4 +158,9 @@
         <action>LoginForm#method=onLogout#static=1</action>
         <icon>fas:sign-out-alt fa-fw</icon>
     </menuitem>
+    
+    <menu>
+        <menuitem label="Cadastro de Pessoas" action="PersonForm" icon="fa:user"/>
+        <menuitem label="Listagem de Pessoas" action="PersonList" icon="fa:list"/>
+    </menu>
 </menu>
