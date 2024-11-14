@@ -42,15 +42,7 @@ class PersonForm extends TStandardForm
         parent::setDatabase('cadastro_pessoas');
         parent::setActiveRecord('Person');
         
-        $this->form->addField($id);
-        $this->form->addField($tipo);
-        $this->form->addField($nome_completo);
-        $this->form->addField($razao_social);
-        $this->form->addField($cpf);
-        $this->form->addField($cnpj);
-        $this->form->addField($email);
-        $this->form->addField($telefone);
-        $this->form->addField($endereco_completo);
+
         
         $vbox = new TVBox;
         $vbox->style = 'width: 100%';
@@ -59,12 +51,12 @@ class PersonForm extends TStandardForm
         parent::add($vbox);
     }
 
-    public function onSave($param)
+    public function onSave()
     {
         try
         {
             $data = $this->form->getData();
-            
+
             if ($data->tipo == 'Fisico' && empty($data->cpf))
             {
                 throw new Exception('CPF é obrigatório para Pessoa Física');
@@ -73,15 +65,15 @@ class PersonForm extends TStandardForm
             {
                 throw new Exception('CNPJ é obrigatório para Pessoa Jurídica');
             }
-            
+
             TTransaction::open('cadastro_pessoas');
-            
+
             $person = new Person;
             $person->fromArray((array) $data);
             $person->store();
-            
+
             TTransaction::close();
-            
+
             $this->form->setData($person);
             new TMessage('info', 'Registro salvo com sucesso');
         }
