@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql mysqli
 
 # Instalar o Composer globalmente
-COPY . .
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Habilitar módulo rewrite do Apache
 RUN a2enmod rewrite
