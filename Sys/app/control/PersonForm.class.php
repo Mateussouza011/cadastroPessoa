@@ -97,3 +97,4 @@ class PersonForm extends TStandardForm
         $this->form->clear();
     }
 }
+?>

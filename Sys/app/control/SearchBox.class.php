@@ -78,3 +78,4 @@ class SearchBox extends TPage
         }
     }
 }
+?>

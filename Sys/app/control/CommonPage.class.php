@@ -16,3 +16,4 @@ class CommonPage extends TPage
         parent::add(new TLabel('Common page'));
     }
 }
+?>

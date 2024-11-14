@@ -86,3 +86,4 @@ class SearchInputBox extends TPage
         TScript::create("$('.search-bar').removeClass('open');");
     }
 }
+?>
