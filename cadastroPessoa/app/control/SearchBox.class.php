@@ -8,7 +8,7 @@
  * @copyright  Copyright (c) 2006 Adianti Solutions Ltd. (http://www.adianti.com.br)
  * @license    https://adiantiframework.com.br/license-template
  */
-class SearchInputBox extends TPage
+class SearchBox extends TPage
 {
     private $form;
     
@@ -20,16 +20,14 @@ class SearchInputBox extends TPage
         parent::__construct('search_box');
         $this->form = new TForm('search_box');
         
-        $input = new TEntry('input');
-        $input->setCompletion( array_values(self::getPrograms()) );
-        $input->placeholder = _t('Search') . '...';
-        $input->style = 'height:initial';
-        $input->setSize(null);
-        $input->setExitAction(new TAction(array('SearchInputBox', 'loadProgram')));
-        $wa = new TEntry('wa');
-        $wa->style='display:none';
+        $input = new TMultiSearch('input');
+        $input->setSize(240,28);
+        $input->addItems( $this->getPrograms() );
+        $input->setMinLength(1);
+        $input->setMaxSize(1);
+        $input->setChangeAction(new TAction(array('SearchBox', 'loadProgram')));
+        
         $this->form->add($input);
-        $this->form->add($wa);
         $this->form->setFields(array($input));
         parent::add($this->form);
     }
@@ -37,7 +35,7 @@ class SearchInputBox extends TPage
     /**
      * Returns an indexed array with all programs
      */
-    public static function getPrograms()
+    public function getPrograms()
     {
         try
         {
@@ -70,20 +68,13 @@ class SearchInputBox extends TPage
      */
     public static function loadProgram($param)
     {
-        $programs = self::getPrograms();
-        $program = $param['input'];
-        $controller = array_search($program, $programs);
-        
-        if ($controller)
+        if (isset($param['input']))
         {
-            TApplication::loadPage($controller);
+            $program = $param['input'][0];
+            if ($program)
+            {
+                TApplication::loadPage($program);
+            }
         }
-        
-        $data = new stdClass;
-        $data->input = '';
-        TForm::sendData('search_box', $data, false, false);
-        
-        TScript::create("$('.search-bar').removeClass('open');");
     }
 }
-?>

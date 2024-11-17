@@ -43,4 +43,3 @@ class WelcomeView extends TPage
         parent::add( $vbox );
     }
 }
-?>

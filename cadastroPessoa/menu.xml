@@ -61,6 +61,20 @@
       </menuitem>
     </menu>
   </menuitem>
+  <menuitem label="Cadastro de Pessoas">
+    <action>PessoaForm</action>
+    <icon>fas:users fa-fw</icon>
+    <menu>
+      <menuitem label="Pessoa Física">
+        <action>PessoaFisicaList</action>
+        <icon>fas:id-card fa-fw</icon>
+      </menuitem>
+      <menuitem label="Pessoa Jurídica">
+        <action>PessoaJuridicaList</action>
+        <icon>fas:building fa-fw</icon>
+      </menuitem>
+    </menu>
+  </menuitem>
   <menuitem label="_t{Documents}">
     <icon>far:file-alt fa-fw</icon>
     <menu>
@@ -135,7 +149,7 @@
   </menuitem>
   <menuitem label="Common pages">
     <menu>
-      <menuitem label="Common page 1">
+      <menuitem label="Public View">
         <action>CommonPage</action>
       </menuitem>
       <menuitem label="Common page 2">
@@ -145,14 +159,6 @@
         <action>CommonPage</action>
       </menuitem>
     </menu>
-  </menuitem>
-  <menuitem label="Pessoa  Form">
-    <action>PersonForm</action>
-    <icon>fas:address-card fa-fw fa-fw</icon>
-  </menuitem>
-  <menuitem label="Pessoa Lista">
-    <action>PersonList</action>
-    <icon>fas:list fa-fw</icon>
   </menuitem>
   <menuitem label="Logout">
     <action>LoginForm#method=onLogout#static=1</action>

@@ -311,4 +311,3 @@ class MessageList extends TElement
             return $since_start->s.' seconds ';    
     }
 }
-?>

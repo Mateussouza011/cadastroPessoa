@@ -265,4 +265,3 @@ class NotificationList extends TElement
             return $since_start->s.' seconds ';    
     }
 }
-?>
