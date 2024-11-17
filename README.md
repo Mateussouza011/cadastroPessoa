@@ -34,10 +34,10 @@ MySQL instalado
 3. **Login na aplicação:**
 
 -Utilize o login 
-    .login: user
-    .senha: user
+    **login**: user
+    **senha**: user
 para ter a visão do usuario padrão, ou:
-    .login:admin
-    .senha:admin
+    **login**:admin
+    **senha**:admin
 para ter a visão do administrador do sistema.
 
